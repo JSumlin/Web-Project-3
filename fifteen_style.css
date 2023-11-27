@@ -1,5 +1,6 @@
+/* Game code below */
 .gameBoard {
-    width: 404px;
+    width: 408px;
     margin: auto;
     display: grid;
     grid-template-columns: 102px 102px 102px 102px;
@@ -15,6 +16,11 @@
     line-height: 100px;
 }
 
+p {
+    line-height: 100px;
+    margin: 0;
+}
+
 .moveablepiece:hover {
     border: 2px solid red;
     color: #006600;
@@ -22,6 +28,8 @@
     cursor: pointer;
 }
 
+
+/* Shuffle button code below */
 #shuffle {
     margin: auto;
 }
@@ -31,11 +39,8 @@
     text-align: center;
 }
 
-p {
-    line-height: 100px;
-    margin: 0;
-}
 
+/* Background image code below (NOTE: All background images should be exactly 400px x 400px) */
 .piece01 {
     background-image: url("background.jpg");
     background-position: 0px 0px;

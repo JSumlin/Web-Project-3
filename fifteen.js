@@ -1,3 +1,4 @@
+// Adds click listener to all moveable pieces
 function addListeners() {
     var moveablepieces = document.getElementsByClassName("moveablepiece");
     for(let i=0; i<moveablepieces.length; ++i){
@@ -5,6 +6,7 @@ function addListeners() {
     }
 }
 
+// Removes all listeners and removes all divs from the moveable piece class
 function removeListeners() {
     var moveablepieces = document.getElementsByClassName("moveablepiece");
     while (moveablepieces.length > 0) {
@@ -20,6 +22,7 @@ function onClick(event) {
     addListeners();
 }
 
+// Moves the appropriate piece to the inactive position and sets its previous position as inactive
 function movePiece(event) {
     const target = event.currentTarget;
     const inactiveCell = document.getElementsByClassName("inactive")[0];
@@ -33,6 +36,7 @@ function movePiece(event) {
     target.className = target.className.replace("active", "inactive");
 }
 
+// Identifies which pieces should be moveable and adds them to the moveable piece class
 function setMoveablePieces(){
     const inactiveCell = document.getElementsByClassName("inactive")[0];
     var inactivePosition =  parseInt(inactiveCell.id.substring(12));
@@ -48,6 +52,7 @@ function setMoveablePieces(){
     }
 }
 
+// Simulates 100 - 249 clicks to shuffle the gameboard
 function shuffle(){
     var moveablepieces;
     var randomPiece;
@@ -59,6 +64,7 @@ function shuffle(){
     }
 }
 
+// Generates random number up to but not including the max. Has uniform PDF
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
