@@ -31,7 +31,6 @@ function movePiece(event) {
     target.innerHTML = "";
     inactiveCell.className = inactiveCell.className.replace("inactive", "active");
     inactiveCell.className += ` ${piece.id}`;
-    target.className = target.className.replace(" moveablepiece", "");
     target.className = target.className.replace(` ${piece.id}`, "");
     target.className = target.className.replace("active", "inactive");
 }
