@@ -42,9 +42,12 @@ function setMoveablePieces(){
     var moveablePositions = [inactivePosition - 1, inactivePosition + 1, inactivePosition + 4, inactivePosition - 4];
     for(var i = 0; i<moveablePositions.length; ++i) {
         if(moveablePositions[i] > 0 && moveablePositions[i] < 17) {
-            if(moveablePositions[i] < 10) {
+            if(inactivePosition % 4 === 0 && moveablePositions[i] === inactivePosition + 1)
+                continue;
+            if(inactivePosition % 4 === 1 && moveablePositions[i] === inactivePosition - 1)
+                continue;
+            if(moveablePositions[i] < 10)
                 moveablePositions[i] = "0" + moveablePositions[i];
-            }
             let moveablePosition = document.getElementById("cellPosition" + moveablePositions[i]);
             moveablePosition.className += " moveablepiece";
         }
