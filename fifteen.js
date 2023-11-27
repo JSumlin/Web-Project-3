@@ -23,10 +23,13 @@ function onClick(event) {
 function movePiece(event) {
     const target = event.currentTarget;
     const inactiveCell = document.getElementsByClassName("inactive")[0];
+    const piece = target.children[0];
     inactiveCell.innerHTML = target.innerHTML;
     target.innerHTML = "";
     inactiveCell.className = inactiveCell.className.replace("inactive", "active");
+    inactiveCell.className += ` ${piece.id}`;
     target.className = target.className.replace(" moveablepiece", "");
+    target.className = target.className.replace(` ${piece.id}`, "");
     target.className = target.className.replace("active", "inactive");
 }
 
@@ -48,7 +51,7 @@ function setMoveablePieces(){
 function shuffle(){
     var moveablepieces;
     var randomPiece;
-    const numOfMoves = getRandomInt(30) + 40;
+    const numOfMoves = getRandomInt(100) + 150;
     for(let i =0; i<numOfMoves; ++i){
         moveablepieces = document.getElementsByClassName("moveablepiece");
         randomPiece = moveablepieces[getRandomInt(moveablepieces.length)];
