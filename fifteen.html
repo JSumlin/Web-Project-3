@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Fifteen</title>
+        <script src="fifteen.js"></script>
+        <link rel="stylesheet" href="fifteen_style.css">
+    </head>
+    <body onload="return addListeners();">
+        <div class="gameBoard">
+            <div class="cell active" id="cellPosition01">1</div>
+            <div class="cell active" id="cellPosition02">2</div>
+            <div class="cell active" id="cellPosition03">3</div>
+            <div class="cell active" id="cellPosition04">4</div>
+            <div class="cell active" id="cellPosition05">5</div>
+            <div class="cell active" id="cellPosition06">6</div>
+            <div class="cell active" id="cellPosition07">7</div>
+            <div class="cell active" id="cellPosition08">8</div>
+            <div class="cell active" id="cellPosition09">9</div>
+            <div class="cell active" id="cellPosition10">10</div>
+            <div class="cell active" id="cellPosition11">11</div>
+            <div class="cell active moveablepiece" id="cellPosition12">12</div>
+            <div class="cell active" id="cellPosition13">13</div>
+            <div class="cell active" id="cellPosition14">14</div>
+            <div class="cell active moveablepiece" id="cellPosition15">15</div>
+            <div class="cell inactive" id="cellPosition16"></div>
+        </div>
+        <br>
+        <div id="shuffleContainer">
+            <button id="shuffle" onclick="return shuffle();">Shuffle</button>
+        </div>
+    </body>
+</html>
