@@ -16,6 +16,10 @@
     line-height: 100px;
 }
 
+.active:hover {
+    cursor: not-allowed;
+}
+
 p {
     line-height: 100px;
     margin: 0;
