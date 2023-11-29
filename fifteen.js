@@ -1,5 +1,12 @@
 var sizeOfRow = 4;
 var numOfCells = 16;
+let timer;
+let moves = 0;
+let time = 1;
+let bestTime = Number.MAX_SAFE_INTEGER;
+let bestMoves = Number.MAX_SAFE_INTEGER;
+const slidingSound = new Audio("sliding.wav");
+const victorySound = new Audio("victory.mp3")
 
 // Adds click listener to all moveable pieces
 function addListeners() {
@@ -23,6 +30,7 @@ function onClick(event) {
     removeListeners();
     setMoveablePieces();
     addListeners();
+    setMoves();
 }
 
 // Moves the appropriate piece to the inactive position and sets its previous position as inactive
@@ -122,4 +130,60 @@ function setBackgroundPosition(gameBoard) {
 // Generates random number up to but not including the max. Has uniform PDF
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
+}
+
+// button trigger
+function shuffleButton() {
+    pauseBackgroundMusic();
+    shuffle();
+    startTimer();
+    document.getElementById("moves").innerHTML = '';
+    moves = 0;
+    playBackgroundMusic(); 
+}
+
+//add when game is solved
+function stopTimer(){
+    clearInterval(timer);
+}
+
+// add when game is solved
+function getBestStats() {
+    if (time < bestTime || (time === bestTime && moves < bestMoves)) {
+        bestTime = time;
+        bestMoves = moves;
+        document.getElementById("bestTime").textContent = `Best Time: ${bestTime}s`;
+        document.getElementById("bestMoves").textContent =  `Best Moves: ${bestMoves}`;
+    }
+}
+
+function startTimer(){
+    clearInterval(timer);
+    time = 1;
+    timer = setInterval(function() {
+        document.getElementById("timer").textContent = time + "s";
+        time++;
+    }, 1000);
+}
+
+function setMoves() {
+    slidingSound.play();
+    moves++;
+    document.getElementById("moves").textContent = moves;
+}
+
+//add when game is solved
+function playWinningSound(){
+    victorySound.play();
+}
+
+function playBackgroundMusic() {
+    const backgroundMusic = document.getElementById("backgroundMusic");
+    backgroundMusic.play();
+}
+
+// add when game is solved
+function pauseBackgroundMusic() {
+    const backgroundMusic = document.getElementById("backgroundMusic");
+    backgroundMusic.pause();
 }

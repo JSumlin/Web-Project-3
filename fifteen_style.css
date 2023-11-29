@@ -46,6 +46,17 @@ p {
     text-align: center;
 }
 
+#info {
+    margin: auto;
+    margin-bottom: 10px;
+    width: 408px;
+    text-align: left;
+}
+#time {
+    float: left;
+    width: 204px;
+}
+
 /* Background image code below (NOTE: This is what is loaded by default). */
 .piece01 {
     background-position: 0px 0px;
