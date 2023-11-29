@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="fifteen_style.css">
     </head>
     <body onload="return addListeners();">
-        <div class="gameBoard">
+        <div class="gameBoard" id="gameBoard">
             <div class="cell active piece01" id="cellPosition01"><p id="piece01">1</p></div>
             <div class="cell active piece02" id="cellPosition02"><p id="piece02">2</p></div>
             <div class="cell active piece03" id="cellPosition03"><p id="piece03">3</p></div>
@@ -28,6 +28,9 @@
         <br>
         <div id="shuffleContainer">
             <button id="shuffle" onclick="return shuffle();">Shuffle</button>
+            <br><br>
+            <label for="sizeBar">Board Size: </label>
+            <input type="range" min="3" max="10" value="4" onchange="return changeBoardSize();" id="sizeBar">
         </div>
     </body>
 </html>
