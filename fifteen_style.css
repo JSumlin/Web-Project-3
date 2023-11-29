@@ -1,6 +1,10 @@
-/* Game code below */
+:root {
+    --background-image: url("background.webp");
+}
+
 .gameBoard {
-    width: 408px;
+    width: 100%;
+    justify-content: center;
     margin: auto;
     display: grid;
     grid-template-columns: 102px 102px 102px 102px;
@@ -14,6 +18,7 @@
     border: 2px solid black;
     text-align: center;
     line-height: 100px;
+    background-image: var(--background-image);
 }
 
 .active:hover {
@@ -32,8 +37,6 @@ p {
     cursor: pointer;
 }
 
-
-/* Shuffle button code below */
 #shuffle {
     margin: auto;
 }
@@ -43,79 +46,63 @@ p {
     text-align: center;
 }
 
-
-/* Background image code below (NOTE: All background images should be exactly 400px x 400px) */
+/* Background image code below (NOTE: This is what is loaded by default). */
 .piece01 {
-    background-image: url("background.jpg");
     background-position: 0px 0px;
 }
 
 .piece02 {
-    background-image: url("background.jpg");
     background-position: -100px 0px;
 }
 
 .piece03 {
-    background-image: url("background.jpg");
     background-position: -200px 0px;
 }
 
 .piece04 {
-    background-image: url("background.jpg");
     background-position: -300px 0px;
 }
 
 .piece05 {
-    background-image: url("background.jpg");
     background-position: 0px -100px;
 }
 
 .piece06 {
-    background-image: url("background.jpg");
     background-position: -100px -100px;
 }
 
 .piece07 {
-    background-image: url("background.jpg");
     background-position: -200px -100px;
 }
 
 .piece08 {
-    background-image: url("background.jpg");
     background-position: -300px -100px;
 }
 
 .piece09 {
-    background-image: url("background.jpg");
     background-position: 0px -200px;
 }
 
 .piece10 {
-    background-image: url("background.jpg");
     background-position: -100px -200px;
 }
 
 .piece11 {
-    background-image: url("background.jpg");
     background-position: -200px -200px;
 }
 
 .piece12 {
-    background-image: url("background.jpg");
     background-position: -300px -200px;
 }
 
 .piece13 {
-    background-image: url("background.jpg");
     background-position: 0px -300px;
 }
 
 .piece14 {
-    background-image: url("background.jpg");
     background-position: -100px -300px;
 }
 
 .piece15 {
-    background-image: url("background.jpg");
     background-position: -200px -300px;
 }
