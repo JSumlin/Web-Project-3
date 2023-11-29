@@ -1,6 +1,6 @@
 let timer;
 let moves = 0;
-let time = 0;
+let time = 1;
 let bestTime = Number.MAX_SAFE_INTEGER;
 let bestMoves = Number.MAX_SAFE_INTEGER;
 const slidingSound = new Audio("sliding.wav");
@@ -96,10 +96,19 @@ function stopTimer(){
     clearInterval(timer);
 }
 
+// add when game is solved
+function getBestStats() {
+    if (time < bestTime || (time === bestTime && moves < bestMoves)) {
+        bestTime = time;
+        bestMoves = moves;
+        document.getElementById("bestTime").textContent = `Best Time: ${bestTime}s`;
+        document.getElementById("bestMoves").textContent =  `Best Moves: ${bestMoves}`;
+    }
+}
 
 function startTimer(){
     clearInterval(timer);
-    time = 0;
+    time = 1;
     timer = setInterval(function() {
         document.getElementById("timer").textContent = time + "s";
         time++;
