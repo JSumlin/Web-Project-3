@@ -2,6 +2,10 @@
     --background-image: url("background.webp");
 }
 
+h1 {
+    text-align: center;
+}
+
 .gameBoard {
     width: 100%;
     justify-content: center;
