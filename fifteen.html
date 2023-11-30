@@ -1,33 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Fifteen</title>
-        <script src="fifteen.js"></script>
-        <link rel="stylesheet" href="fifteen_style.css">
-    </head>
-    <body onload="return addListeners();">
-        <div class="gameBoard">
-            <div class="cell active piece01" id="cellPosition01"><p id="piece01">1</p></div>
-            <div class="cell active piece02" id="cellPosition02"><p id="piece02">2</p></div>
-            <div class="cell active piece03" id="cellPosition03"><p id="piece03">3</p></div>
-            <div class="cell active piece04" id="cellPosition04"><p id="piece04">4</p></div>
-            <div class="cell active piece05" id="cellPosition05"><p id="piece05">5</p></div>
-            <div class="cell active piece06" id="cellPosition06"><p id="piece06">6</p></div>
-            <div class="cell active piece07" id="cellPosition07"><p id="piece07">7</p></div>
-            <div class="cell active piece08" id="cellPosition08"><p id="piece08">8</p></div>
-            <div class="cell active piece09" id="cellPosition09"><p id="piece09">9</p></div>
-            <div class="cell active piece10" id="cellPosition10"><p id="piece10">10</p></div>
-            <div class="cell active piece11" id="cellPosition11"><p id="piece11">11</p></div>
-            <div class="cell active piece12 moveablepiece" id="cellPosition12"><p id="piece12">12</p></div>
-            <div class="cell active piece13" id="cellPosition13"><p id="piece13">13</p></div>
-            <div class="cell active piece14" id="cellPosition14"><p id="piece14">14</p></div>
-            <div class="cell active piece15 moveablepiece" id="cellPosition15"><p id="piece15">15</p></div>
-            <div class="cell inactive" id="cellPosition16"></div>
+<head>
+    <meta charset="UTF-8">
+    <title>Fifteen</title>
+    <script>
+        var backgroundImages = [
+            "background1.png",
+            "background2.png",
+            "background3.png",
+            "background4.png"
+        ];
+
+        // Select a random background image URL
+        var randomBackgroundImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+
+        // Dynamically set the background image for the game board
+        document.documentElement.style.setProperty("--background-image", "url('" + randomBackgroundImage + "')");
+    </script>
+    <link rel="stylesheet" href="fifteen_style.css">
+    <script src="fifteen.js"></script>
+</head>
+<body onload="return addListeners();">
+    <h1>Fifteen Puzzle</h1>
+    <div id="info">
+        <div id="time">
+            Time: <span id="timer"></span> <br>
+            <span id="bestTime"></span>
         </div>
-        <br>
-        <div id="shuffleContainer">
-            <button id="shuffle" onclick="return shuffle();">Shuffle</button>
+        <div id="move">
+            Moves: <span id="moves"></span> <br>
+            <span id="bestMoves"></span>
         </div>
-    </body>
+        
+    </div>
+	<img id="winImage" src="win.jpg" alt="Win" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="gameBoard" id="gameBoard">
+        <div class="cell active piece01" id="cellPosition01"><p id="piece01">1</p></div>
+        <div class="cell active piece02" id="cellPosition02"><p id="piece02">2</p></div>
+        <div class="cell active piece03" id="cellPosition03"><p id="piece03">3</p></div>
+        <div class="cell active piece04" id="cellPosition04"><p id="piece04">4</p></div>
+        <div class="cell active piece05" id="cellPosition05"><p id="piece05">5</p></div>
+        <div class="cell active piece06" id="cellPosition06"><p id="piece06">6</p></div>
+        <div class="cell active piece07" id="cellPosition07"><p id="piece07">7</p></div>
+        <div class="cell active piece08" id="cellPosition08"><p id="piece08">8</p></div>
+        <div class="cell active piece09" id="cellPosition09"><p id="piece09">9</p></div>
+        <div class="cell active piece10" id="cellPosition10"><p id="piece10">10</p></div>
+        <div class="cell active piece11" id="cellPosition11"><p id="piece11">11</p></div>
+        <div class="cell active piece12 moveablepiece" id="cellPosition12"><p id="piece12">12</p></div>
+        <div class="cell active piece13" id="cellPosition13"><p id="piece13">13</p></div>
+        <div class="cell active piece14" id="cellPosition14"><p id="piece14">14</p></div>
+        <div class="cell active piece15 moveablepiece" id="cellPosition15"><p id="piece15">15</p></div>
+        <div class="cell inactive" id="cellPosition16"></div>
+    </div>
+    <br>
+    <div id="shuffleContainer">
+        <button id="shuffle" onclick=" return shuffleButton();">Shuffle</button>
+        <br><br>
+        <label for="sizeBar">Board Size: </label>
+        <input type="range" min="3" max="10" value="4" onchange="return changeBoardSize();" id="sizeBar">
+    </div>
+	
+	<div id="congratulations" style="display: none;">Congratulations! You solved the puzzle!</div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="backgroundMusic.mp3" type="audio/mpeg">
+    </audio>
+</body>
 </html>
