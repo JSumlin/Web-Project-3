@@ -1,5 +1,6 @@
 var sizeOfRow = 4;
 var numOfCells = 16;
+var isShuffling = false;
 let timer;
 let moves = 0;
 let time = 1;
@@ -7,6 +8,58 @@ let bestTime = Number.MAX_SAFE_INTEGER;
 let bestMoves = Number.MAX_SAFE_INTEGER;
 const slidingSound = new Audio("sliding.wav");
 const victorySound = new Audio("victory.mp3")
+
+function checkGameSolved() {
+    const cells = document.querySelectorAll('.cell');
+    let solved = true;
+
+    // Checks to see if each active piece is in its correct position
+    cells.forEach((cell, index) => {
+        if (!cell.classList.contains('inactive')) {
+            const pieceNumber = index + 1;
+            const pieceId = pieceNumber < 10 ? 'piece0' + pieceNumber : 'piece' + pieceNumber;
+
+            if (!cell.classList.contains(pieceId)) {
+                solved = false;
+            }
+        }
+    });
+
+    return solved;
+}
+
+// Handles the solved state
+function handleGameSolved() {
+    stopTimer();
+    playWinningSound();
+    getBestStats();
+
+    document.getElementById("gameBoard").classList.add("solved");
+
+    // Display congratulatory message
+    const congratulations = document.getElementById("congratulations");
+    congratulations.style.display = "block";
+
+
+    const winImage = document.getElementById("winImage");
+    winImage.style.display = "block";
+
+    win();
+}
+
+// Function to be called when the user wins
+function win() {
+    document.body.classList.add("win-background");
+    document.getElementById('rules').className = "winText";
+    document.getElementById('rules').innerHTML = "You Win!";
+}
+
+// Function to check the game state after each move
+function checkGameState() {
+    if (checkGameSolved()) {
+        handleGameSolved();
+    }
+}
 
 // Adds click listener to all moveable pieces
 function addListeners() {
@@ -31,6 +84,10 @@ function onClick(event) {
     setMoveablePieces();
     addListeners();
     setMoves();
+    
+	if(!isShuffling){
+        checkGameState();
+    }
 }
 
 // Moves the appropriate piece to the inactive position and sets its previous position as inactive
@@ -70,6 +127,7 @@ function setMoveablePieces() {
 
 // Simulates 100 - 249 clicks to shuffle the gameboard
 function shuffle() {
+    isShuffling = true;
     var moveablepieces;
     var randomPiece;
     const numOfMoves = getRandomInt(sizeOfRow * 25) + sizeOfRow * 50;
@@ -78,6 +136,7 @@ function shuffle() {
         randomPiece = moveablepieces[getRandomInt(moveablepieces.length)];
         randomPiece.click();
     }
+    isShuffling = false;
 }
 
 function changeBoardSize() {
@@ -140,8 +199,10 @@ function shuffleButton() {
     document.getElementById("moves").innerHTML = '';
     moves = 0;
     playBackgroundMusic(); 
+	
+  
+    setTimeout(checkGameState, 500);
 }
-
 //add when game is solved
 function stopTimer(){
     clearInterval(timer);

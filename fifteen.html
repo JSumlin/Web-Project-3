@@ -33,6 +33,7 @@
         </div>
         
     </div>
+	<img id="winImage" src="win.jpg" alt="Win" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     <div class="gameBoard" id="gameBoard">
         <div class="cell active piece01" id="cellPosition01"><p id="piece01">1</p></div>
         <div class="cell active piece02" id="cellPosition02"><p id="piece02">2</p></div>
@@ -58,6 +59,9 @@
         <label for="sizeBar">Board Size: </label>
         <input type="range" min="3" max="10" value="4" onchange="return changeBoardSize();" id="sizeBar">
     </div>
+	
+	<div id="congratulations" style="display: none;">Congratulations! You solved the puzzle!</div>
+
     <audio id="backgroundMusic" loop>
         <source src="backgroundMusic.mp3" type="audio/mpeg">
     </audio>
