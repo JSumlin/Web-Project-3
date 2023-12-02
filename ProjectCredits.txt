@@ -1,0 +1,18 @@
+Tile Game Project - Credits
+
+Alexander Nguyen - Development, Debugging, Integration, Testing 
+			+ Multiple Backgrounds + PPT + Presentation Recordings
+
+Totti Nguyen - Development, Debugging, Integration, Testing 
+			+ Timer/Audio + Presentation Recordings
+
+Joseph Sumlin - Development, Debugging, Integration, Testing 
+			+ Multiple Puzzle Sizes + PPT + Presentation Recordings
+
+Jamie Lopez - Development, Debugging, Integration, Testing 
+			+ Winning Notification + Presentation Recordings
+
+Goutham Ganapathiappan - Presentation Recordings
+
+
+TOTAL TIME SPENT ON PROJECT: 83 HOURS
