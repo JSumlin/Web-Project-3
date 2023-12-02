@@ -1,0 +1,175 @@
+* {
+    padding: 0;
+    margin:  0;
+}
+body {
+    text-align: center;
+}
+h1 {
+    margin: 50px;
+}
+#shuffleContainer {
+    margin-left: auto;
+    margin-right:  auto;
+    margin-top: 50px;
+    
+}
+#shuffleContainer button {
+    cursor: pointer;
+}
+
+#info {
+    margin: auto;
+    margin-bottom: 10px;
+    width: 408px;
+    text-align: left;
+}
+#time {
+    float: left;
+    width: 204px;
+}
+
+
+
+/* Game code below */
+.gameBoard {
+    width: 408px;
+    color: white;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 102px 102px 102px 102px;
+    grid-template-rows: 102px 102px 102px 102px;
+    background-color: lightcoral;
+    border: 10px solid black;
+    
+    
+    
+    
+}
+
+.active {
+    font-size: 32pt;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 100px;
+}
+
+.active:hover {
+    cursor: not-allowed;
+}
+
+p {
+    line-height: 100px;
+    margin: 0;
+    
+    
+}
+
+.moveablepiece:hover {
+    border: 2px solid red;
+    color: #006600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/* Shuffle button code below */
+#shuffle {
+    margin: auto;
+}
+
+#shuffleContainer {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Background image code below (NOTE: All background images should be exactly 400px x 400px) */
+.piece01 {
+    background-image: url("background.jpg");
+    background-position: 0px 0px;
+    
+}
+
+.piece02 {
+    background-image: url("background.jpg");
+    background-position: -100px 0px;
+}
+
+.piece03 {
+    background-image: url("background.jpg");
+    background-position: -200px 0px;
+}
+
+.piece04 {
+    background-image: url("background.jpg");
+    background-position: -300px 0px;
+}
+
+.piece05 {
+    background-image: url("background.jpg");
+    background-position: 0px -100px;
+    
+}
+
+.piece06 {
+    background-image: url("background.jpg");
+    background-position: -100px -100px;
+
+}
+
+.piece07 {
+    background-image: url("background.jpg");
+    background-position: -200px -100px;
+
+}
+
+.piece08 {
+    background-image: url("background.jpg");
+    background-position: -300px -100px;
+
+}
+
+.piece09 {
+    background-image: url("background.jpg");
+    background-position: 0px -200px;
+}
+
+.piece10 {
+    background-image: url("background.jpg");
+    background-position: -100px -200px;
+
+}
+
+.piece11 {
+    background-image: url("background.jpg");
+    background-position: -200px -200px;
+
+}
+
+.piece12 {
+    background-image: url("background.jpg");
+    background-position: -300px -200px;
+
+}
+
+.piece13 {
+    background-image: url("background.jpg");
+    background-position: 0px -300px;
+    
+}
+
+.piece14 {
+    background-image: url("background.jpg");
+    background-position: -100px -300px;
+
+}
+
+.piece15 {
+    background-image: url("background.jpg");
+    background-position: -200px -300px;
+
+}
+
