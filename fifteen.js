@@ -33,6 +33,7 @@ function handleGameSolved() {
     stopTimer();
     playWinningSound();
     getBestStats();
+    pauseBackgroundMusic();
 
     document.getElementById("gameBoard").classList.add("solved");
 
@@ -199,6 +200,8 @@ function shuffleButton() {
     document.getElementById("moves").innerHTML = '';
     moves = 0;
     playBackgroundMusic(); 
+    document.getElementById("winImage").style.display = "none";
+    document.getElementById("congratulations").style.display = "none";
 	
   
     setTimeout(checkGameState, 500);
